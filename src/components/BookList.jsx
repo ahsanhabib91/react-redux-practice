@@ -19,6 +19,7 @@ class BookList extends React.Component {
 
     return this.props.books.map((book, i) => (
       <li
+        style={{ cursor: "pointer" }}
         key={book.title}
         className={`list-group-item ${
           // this.state.currentActive === i ? "active" : "" // using STATE
