@@ -1,12 +1,51 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { fetcPosts, fetchUser } from "../actions";
 
 class PostList extends Component {
+  componentDidMount() {
+    this.props.fetcPosts();
+  }
+
+  selectUserHandler = userId => {
+    console.log(userId);
+    this.props.fetchUser(userId);
+  };
+
+  renderPostList = () => {
+    return this.props.posts.map(p => (
+      <div key={p.id} className="card">
+        <div className="card-body">
+          <h5 className="card-title">{p.title}</h5>
+          <p className="card-text">{p.body}</p>
+          <a
+            href="#"
+            onClick={() => this.selectUserHandler(p.userId)}
+            className="card-link"
+          >
+            User Detail
+          </a>
+        </div>
+      </div>
+    ));
+  };
   render() {
-    return <div>PostList</div>;
+    return (
+      <div>
+        <h3>PostList</h3>
+        <div style={{ height: "71vh", overflow: "auto", border: "1px solid" }}>
+          {this.renderPostList()}
+        </div>
+      </div>
+    );
   }
 }
 
-const mapStateToProps = state => {};
+const mapStateToProps = state => {
+  return { posts: state.posts };
+};
 
-export default connect(mapStateToProps)(PostList);
+export default connect(
+  mapStateToProps,
+  { fetcPosts, fetchUser }
+)(PostList);

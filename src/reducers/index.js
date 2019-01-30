@@ -17,7 +17,23 @@ const selectedBookReducer = (alreadySelectedBook = null, action) => {
   return alreadySelectedBook;
 };
 
+const postsReducer = (posts = [], action) => {
+  if (action.type === "FETCH_POSTS") {
+    return action.payload;
+  }
+  return posts;
+};
+
+const selectedUserReducer = (selectedUser = null, action) => {
+  if (action.type === "FETCH_USER") {
+    return action.payload;
+  }
+  return selectedUser;
+};
+
 export default combineReducers({
   books: booksReducer,
-  selectedBook: selectedBookReducer
+  selectedBook: selectedBookReducer,
+  posts: postsReducer,
+  selectedUser: selectedUserReducer
 });
