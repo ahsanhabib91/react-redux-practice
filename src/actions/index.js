@@ -30,7 +30,7 @@ export const fetchUser = id => {
 };
 
 /**
- * Actions -> function, type, paylaod
+ * Actions -> function() => (type, paylaod) {}
  * Synchronous action creator -> Instanly returns an action with data ready to go
  * Asynchronous action creator ->
  */

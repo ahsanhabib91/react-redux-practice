@@ -37,3 +37,10 @@ export default combineReducers({
   posts: postsReducer,
   selectedUser: selectedUserReducer
 });
+
+/**
+ * Reducers -> function() => (previousStateDataOfItself, action) {}
+ * return -> cannot return undefined
+ * should not do any I/O operation inside reducer
+ * Do not mute state -> don't do state.push, state[0], state.pop() and so on
+ */
