@@ -33,4 +33,6 @@ export const fetchUser = id => {
  * Actions -> function() => (type, paylaod) {}
  * Synchronous action creator -> Instanly returns an action with data ready to go
  * Asynchronous action creator ->
+ * By adding Redux-Thunk, rules of action creator cahnged. Action-Creator does not
+ * always need to return plain object. It also can return a function instead. For funciton, it will get dispatch, getState as parameter
  */

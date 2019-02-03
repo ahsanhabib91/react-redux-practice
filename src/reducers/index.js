@@ -43,4 +43,8 @@ export default combineReducers({
  * return -> cannot return undefined
  * should not do any I/O operation inside reducer
  * Do not mute state -> don't do state.push, state[0], state.pop() and so on
+ * Other Actiono Creators can be called inside an Action Creator. Just need
+ * to make sure to dispatch each Action Creator instead of just call/invoking them.
+ * For ref -> stephen-grider-blog-app -> actions/index.js -> fetchPostsAndUsers(), fetchPosts(), fetchUser(id)
+ * calling action creators in action creators -> Stephen Grider Lecture 186
  */

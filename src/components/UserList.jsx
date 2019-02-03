@@ -26,7 +26,8 @@ const UserList = ({ user }) => {
   );
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
+  console.log(ownProps); // Props passed to the component
   return { user: state.selectedUser };
 };
 

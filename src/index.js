@@ -8,6 +8,10 @@ import App from "./components/App";
 import reducers from "./reducers";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+/**
+ * when the middleware redux-thunk applied, then anytime we dispatch an action,
+ * the action will be first send to redux-thunk as the middleware. Then after redux-thunk, it will be send to all different reducers
+ */
 const store = createStore(
   reducers,
   composeEnhancers(applyMiddleware(reduxThunk))
