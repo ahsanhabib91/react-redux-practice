@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetcPosts, fetchUser } from "../actions";
+import UserList from "./UserList";
 
 class PostList extends Component {
   componentDidMount() {
@@ -31,10 +32,17 @@ class PostList extends Component {
   };
   render() {
     return (
-      <div>
-        <h3>PostList</h3>
-        <div style={{ height: "71vh", overflow: "auto", border: "1px solid" }}>
-          {this.renderPostList()}
+      <div className="row">
+        <div className="col">
+          <h3>PostList</h3>
+          <div
+            style={{ height: "71vh", overflow: "auto", border: "1px solid" }}
+          >
+            {this.renderPostList()}
+          </div>
+        </div>
+        <div className="col">
+          <UserList />
         </div>
       </div>
     );

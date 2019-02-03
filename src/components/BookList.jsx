@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { selectBook } from "../actions";
+import BookDetail from "./BookDetail";
 
 class BookList extends React.Component {
   state = {
@@ -34,8 +35,14 @@ class BookList extends React.Component {
 
   render() {
     return (
-      <div>
-        <ul>{this.renderListOfBooks()}</ul>
+      <div className="row">
+        <div className="col">
+          <h3>BookList</h3>
+          <ul>{this.renderListOfBooks()}</ul>
+        </div>
+        <div className="col">
+          <BookDetail />
+        </div>
       </div>
     );
   }
