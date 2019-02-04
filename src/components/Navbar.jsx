@@ -1,41 +1,27 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 class NavBar extends React.Component {
-  state = { currentUrl: "" };
-
-  componentDidMount() {
-    const url = window.location.href;
-    this.setState({ currentUrl: url });
-  }
-
-  urlClickHandler = url => {
-    this.setState({ currentUrl: url });
-  };
-
   render() {
-    const { currentUrl } = this.state;
-
     return (
       <div style={{ marginBottom: "10px" }}>
         <nav className="nav nav-pills nav-fill">
-          <a
+          <Link
             className={`nav-item nav-link ${
-              currentUrl === "http://localhost:3000/" ? "active" : ""
+              window.location.pathname === "/" ? "active" : ""
             }`}
-            href="/"
-            onClick={() => this.urlClickHandler("/")}
+            to="/"
           >
             Book List
-          </a>
-          <a
+          </Link>
+          <Link
             className={`nav-item nav-link ${
-              currentUrl.indexOf("/posts") !== -1 ? "active" : ""
+              window.location.pathname === "/posts" ? "active" : ""
             }`}
-            href="/posts"
-            onClick={() => this.urlClickHandler("/posts")}
+            to="/posts"
           >
             Post List
-          </a>
+          </Link>
         </nav>
       </div>
     );
