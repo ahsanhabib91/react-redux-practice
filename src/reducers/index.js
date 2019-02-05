@@ -1,4 +1,5 @@
 import { combineReducers } from "redux";
+import { reducer as formReducer } from "redux-form";
 
 const booksReducer = (books = [], action) => {
   return [
@@ -35,10 +36,13 @@ export default combineReducers({
   books: booksReducer,
   selectedBook: selectedBookReducer,
   posts: postsReducer,
-  selectedUser: selectedUserReducer
+  selectedUser: selectedUserReducer,
+  form: formReducer
 });
 
 /**
+ * To write data to reduxStore -> we call Action Creator
+ * To read data from reduxStore -> we call mapStateToProps
  * Reducers -> function() => (previousStateDataOfItself, action) {}
  * return -> cannot return undefined
  * should not do any I/O operation inside reducer
