@@ -22,6 +22,14 @@ class NavBar extends React.Component {
           >
             Post List
           </Link>
+          <Link
+            className={`nav-item nav-link ${
+              window.location.pathname === "/book/create" ? "active" : ""
+            }`}
+            to="/book/create"
+          >
+            Book Create
+          </Link>
         </nav>
       </div>
     );

@@ -13,6 +13,7 @@ import PostList from "./PostList";
 import UserList from "./UserList";
 import NavBar from "./Navbar";
 import history from "../history";
+import BookCreate from "./BookCreate";
 
 const App = props => {
   return (
@@ -26,6 +27,7 @@ const App = props => {
             {/* Switch tag is taking 1(first occurance) router at a time among the multiple router with same path="/provided_url" */}
             <Route path="/" exact component={BookList} />
             <Route path="/posts" exact component={PostList} />
+            <Route path="/book/create" exact component={BookCreate} />
           </Switch>
         </div>
         {/* </MemoryRouter> */}
