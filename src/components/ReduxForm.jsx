@@ -17,10 +17,11 @@ class ReduxForm extends React.Component {
   renderInput = formProps => {
     // console.log(formProps);
     const { input, label, resultOfCustomProp, meta } = formProps;
+    console.log(meta);
     return (
       <div className="field">
         <label>{label}</label>
-        <input type="text" {...formProps.input} />
+        <input type="text" {...formProps.input} autoComplete="off" />
       </div>
     );
     // return <div>This is a FormField</div>;
@@ -31,7 +32,7 @@ class ReduxForm extends React.Component {
   };
 
   render() {
-    console.log(this.props);
+    // console.log(this.props);
     /**
      * onSubmit -> FormSubmit event
      * this.props.handleSubmit -> formSubmit handler function passed by ReduxForm
@@ -60,6 +61,25 @@ class ReduxForm extends React.Component {
   }
 }
 
+/**
+ * Field -> Component which will setup the automatic functionality of Redux form
+ * <Field component={renderJsx()} />  -> component is basically the main jsx component which will be passed to Field component and Field will render them
+ *
+ * key name of errors object and value of the name property of Field element must be same.
+ * errors.title <Field name="title" /> in this case
+ */
+
+/**
+ * For every user interaction with ReduxForm, this validate function will be called to validate Form data
+ * If validate function does not return an empty object then it will re-render the Component
+ * Every Field will render with the error message passed to property
+ */
+const validate = formValues => {
+  //   console.log("validate", formValues);
+  return { title: "Book Title", description: "Book Description" };
+};
+
 export default reduxForm({
-  form: "bookForm"
+  form: "bookForm",
+  validate: validate
 })(ReduxForm);
